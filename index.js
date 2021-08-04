@@ -40,6 +40,10 @@ var runningQuestionIndex = 0
 
 function renderQuestion() {
   let q = allQuestions[runningQuestionIndex]
+  if (submit === true) {
+    return title[1]
+  }
+
   //put title on page
 }
 
