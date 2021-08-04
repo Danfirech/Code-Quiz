@@ -13,9 +13,13 @@ var submit = document.getElementById('submit')
 
 //Create my questions
 
-document.querySelector('#letsPlay').addEventListener('click', function (allQuestions[0].choices[0]); {
-  alert('hello')
-})
+// document.querySelector('#letsPlay').addEventListener('click', function () {
+//     letsPlay(allQuestions[0].title[0])
+//   }
+
+letsPlay.addEventListener('click', renderQuestion)
+
+// allQuestions[0].choices[0]
 
 var allQuestions = [
   {
@@ -43,7 +47,7 @@ var runningQuestionIndex = 0
 function renderQuestion() {
   let q = allQuestions[runningQuestionIndex]
   if (letsPlay === true) {
-    return allQuestions(title[0].title)
+    return allQuestions(title[0].title[0])
   }
 
   // Trying to go from start button
