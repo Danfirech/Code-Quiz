@@ -13,6 +13,10 @@ var submit = document.getElementById('submit')
 
 //Create my questions
 
+document.querySelector('#letsPlay').addEventListener('click', function (allQuestions[0].choices[0]); {
+  alert('hello')
+})
+
 var allQuestions = [
   {
     title: 'what is my name?',
@@ -25,24 +29,24 @@ var allQuestions = [
     choices: ['Shari', 'little girl joji', 'lucy'],
     answer: 'lucy',
   },
-]
 
-// var questions = {
-//   question: 'where am I from',
-//   choiceA: 'Denmark',
-//   choicB: 'Michigan',
-//   choiceC: 'Arizona',
-//   correct: 'C',
-// }
+  {
+    title: 'what is my favorite name',
+    choices: ['pizza', 'burrito', 'mango'],
+    answer: 'pizza',
+  },
+]
 
 var lastQuestionIndex = question.length - 1
 var runningQuestionIndex = 0
 
 function renderQuestion() {
   let q = allQuestions[runningQuestionIndex]
-  if (submit === true) {
-    return title[1]
+  if (letsPlay === true) {
+    return allQuestions(title[0].title)
   }
+
+  // Trying to go from start button
 
   //put title on page
 }
@@ -53,4 +57,4 @@ function renderProgress() {
   }
 }
 
-start.addEventListener('click', startQuiz)
+// start.addEventListener('click', startQuiz)
