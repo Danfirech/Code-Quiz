@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div>
+      <p>
+        time remaing:
+        <span id="timer"></span>
+      </p>
+      <p>
+        score:
+        <span id="score"></span>
+      </p>
+    </div>
+
+    <!-- start button -->
+    <div id="start">
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius
+        praesentium voluptates sint nulla! Omnis temporibus rerum quos labore,
+        dolorem vitae?
+      </p>
+
+      <button id="letsPlay">Start!</button>
+    </div>
+
+    <!-- questions -->
+    <div id="quiz" style="display: none;">
+      <div id="question"><p>Question</p></div>
+      <div id="choices">
+        <div class="choice" id="A" onclick="checkAnswer()">A</div>
+        <div class="choice" id="B" onclick="checkAnswer()">B</div>
+        <div class="choice" id="C" onclick="checkAnswer()">C</div>
+        <div class="choice" id="D" onclick="checkAnswer()">D</div>
+      </div>
+    </div>
+
+    <div id="highScorePage" style="display: none;">
+      <p>High Score!</p>
+      <input id="initials" type="text" />
+      <button id="submit">Submit high score</button>
+    </div>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
