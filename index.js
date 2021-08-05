@@ -1,11 +1,11 @@
 // Create my Variables
 
 var timer = document.getElementById('timer')
-var score = document.getElementById('score')
+var scoreEL = document.getElementById('score')
 var start = document.getElementById('start')
 var letsPlay = document.getElementById('letsPlay')
 var quiz = document.getElementById('quiz')
-var question = document.getElementById('question')
+var questionEL = document.getElementById('question')
 var choices = document.getElementById('choices')
 var highScorePage = document.getElementById('highScorePage')
 var initials = document.getElementById('initials')
@@ -13,13 +13,28 @@ var submit = document.getElementById('submit')
 
 //I NEED A TIMER!!!
 
+var timeLeft = 70
+var downTimer = setInterval(function () {
+  timeLeft--
+  document.getElementById('timer').textContent = timeLeft
+  if (timeLeft <= 0) clearInterval(downTimer)
+}, 1000)
+
+//I NEED THE SCORE!!!
+
+var score = 0
+
 //Create my questions
 
 // document.querySelector('#letsPlay').addEventListener('click', function () {
-//     letsPlay(allQuestions[0].title[0])
-//   }
+// //     letsPlay(allQuestions[0].title[0])
+// //   }
 
-letsPlay.addEventListener('click', renderQuestion)
+letsPlay.addEventListener('click', function () {
+  renderQuestion()
+  start.setAttribute('style', 'display: none')
+  quiz.removeAttribute('style')
+})
 
 // allQuestions[0].choices[0]
 
@@ -49,14 +64,32 @@ var allQuestions = [
 
 var lastQuestionIndex = question.length - 1
 var runningQuestionIndex = 0
-var goTime = allQuestions[runningQuestionIndex]
+// var goTime = allQuestions[runningQuestionIndex]
 
-function renderQuestion(goTime) {
-  for (var i = 0, num = allQuestions.length; i < num; i++);
+function renderQuestion() {
+  var thisQuestion = allQuestions[runningQuestionIndex]
+  questionEL.textContent = thisQuestion.title
+
+  choices.innerHTML = ''
+  thisQuestion.choices.forEach(function (choice) {
+    var button = document.createElement('button')
+    button.textContent = choice
+    button.addEventListener('click', checkAnswer)
+    choices.appendChild(button)
+  })
 }
 
-renderQuestion(goTime)
+function checkAnswer(event) {
+  if (event.target.textContent === allQuestions[runningQuestionIndex].answer) {
+    score++
+  } else {
+    timeLeft -= 5
+  }
 
+  lastQuestionIndex++
+
+  renderQuestion()
+}
 // Trying to go from start button
 
 //put title on page
