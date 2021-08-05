@@ -11,6 +11,8 @@ var highScorePage = document.getElementById('highScorePage')
 var initials = document.getElementById('initials')
 var submit = document.getElementById('submit')
 
+//I NEED A TIMER!!!
+
 //Create my questions
 
 // document.querySelector('#letsPlay').addEventListener('click', function () {
@@ -41,24 +43,27 @@ var allQuestions = [
   },
 ]
 
+// Trying to go from start button
+
+//put title on page
+
 var lastQuestionIndex = question.length - 1
 var runningQuestionIndex = 0
+var goTime = allQuestions[runningQuestionIndex]
 
-function renderQuestion() {
-  let q = allQuestions[runningQuestionIndex]
-  if (letsPlay === true) {
-    return allQuestions(title[0].title[0])
-  }
-
-  // Trying to go from start button
-
-  //put title on page
+function renderQuestion(goTime) {
+  for (var i = 0, num = allQuestions.length; i < num; i++);
 }
 
-function renderProgress() {
-  for (let qIndex = 0; qIndex <= lastQuestion; qIndex++) {
-    progress.innerHTML += "<div class='prog' id=" + qIndex + '></div>'
-  }
-}
+renderQuestion(goTime)
+
+// Trying to go from start button
+
+//put title on page
+
+// function renderProgress() {
+//   for (let qIndex = 0; qIndex <= lastQuestion; qIndex++) {
+//     progress.innerHTML += "<div class='prog' id=" + qIndex + '></div>'
+//   }
 
 // start.addEventListener('click', startQuiz)
