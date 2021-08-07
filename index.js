@@ -23,6 +23,10 @@ var downTimer = setInterval(function () {
 //I NEED THE SCORE!!!
 
 var score = 0
+// var scoreInterval = setInterval(function () {
+//   scoreUp++
+//   document.getElementById('score').textContent = scoreUp
+// }, 1000)
 
 //Create my questions
 
@@ -62,7 +66,7 @@ var allQuestions = [
 
 //put title on page
 
-var lastQuestionIndex = question.length - 1
+var lastQuestionIndex = allQuestions.length - 1
 var runningQuestionIndex = 0
 // var goTime = allQuestions[runningQuestionIndex]
 
@@ -70,25 +74,36 @@ function renderQuestion() {
   var thisQuestion = allQuestions[runningQuestionIndex]
   questionEL.textContent = thisQuestion.title
 
+  //clears answers
   choices.innerHTML = ''
   thisQuestion.choices.forEach(function (choice) {
     var button = document.createElement('button')
     button.textContent = choice
-    button.addEventListener('click', checkAnswer)
+    button.addEventListener('click', function () {
+      checkAnswer(event)
+      if (runningQuestionIndex === lastQuestionIndex) {
+        //display results 1. create function
+        alert(`You scored ${score}`)
+      } else {
+        runningQuestionIndex++
+        renderQuestion()
+      }
+    })
     choices.appendChild(button)
   })
 }
+console.log(choices)
 
 function checkAnswer(event) {
+  // console.log(
+  //   event.target.textContent,
+  //   allQuestions[runningQuestionIndex].answer,
+  // )
   if (event.target.textContent === allQuestions[runningQuestionIndex].answer) {
     score++
   } else {
     timeLeft -= 5
   }
-
-  lastQuestionIndex++
-
-  renderQuestion()
 }
 // Trying to go from start button
 
